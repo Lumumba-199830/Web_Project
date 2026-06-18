@@ -257,14 +257,14 @@ body {
 .page-hero-sub { font-size: 1rem; color: var(--muted); max-width: 500px; }
 
 /* ABOUT PAGE */
-.about-mission { padding: 5rem 0; background: var(--bg); }
+.about-mission { padding: 3rem 0; background: var(--bg); }
 .about-mission h2 { font-family: 'Fraunces', serif; font-size: clamp(1.6rem, 3vw, 2rem); font-weight: 700; color: var(--dark); margin-bottom: 1rem; }
 .about-mission p { color: var(--muted); margin-bottom: 1rem; }
 
-.mission-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-.mstat { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; display: flex; flex-direction: column; gap: 0.3rem; }
+.mission-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+.mstat { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.2rem; display: flex; flex-direction: row; align-items: center; gap: 0.8rem; }
 .mstat.accent { background: var(--green-light); border-color: transparent; }
-.mstat-num { font-family: 'Fraunces', serif; font-size: 2.2rem; font-weight: 700; color: var(--green); }
+.mstat-num { font-family: 'Fraunces', serif; font-size: 1.4rem; font-weight: 700; color: var(--green); white-space: nowrap; }
 .mstat-label { font-size: 0.85rem; color: var(--muted); }
 
 .how-section { padding: 5rem 0; background: var(--white); }
