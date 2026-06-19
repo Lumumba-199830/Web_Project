@@ -374,3 +374,102 @@ input.input-error, select.input-error, textarea.input-error { border-color: #e53
 .contact-info-item h4 { font-size: 0.92rem; font-weight: 700; color: var(--heading); margin-bottom: 0.2rem; }
 
 .contact-info-item p { font-size: 0.88rem; color: var(--muted); margin: 0; }
+
+/* ARTICLES PAGE */
+.articles-section { padding: 3rem 0 5rem; background: var(--bg); }
+
+.article-filters {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+.filter-btn {
+  background: var(--white);
+  border: 1px solid var(--border);
+  color: var(--body-text);
+  padding: 0.45rem 1.1rem;
+  border-radius: 20px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.filter-btn:hover, .filter-btn.active {
+  background: var(--green);
+  color: var(--white);
+  border-color: var(--green);
+}
+
+.article-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  height: 100%;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.article-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+.article-img {
+  height: 160px;
+  width: 100%;
+}
+
+.nutrition-bg { background: linear-gradient(135deg, #a8e6cf, #56ab2f); }
+.fitness-bg { background: linear-gradient(135deg, #ffecd2, #fcb69f); }
+.sleep-bg { background: linear-gradient(135deg, #c2e9fb, #a1c4fd); }
+.mental-bg { background: linear-gradient(135deg, #f8c8d4, #e96c9a); }
+
+.article-body { padding: 1.4rem; }
+
+.article-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.7rem;
+  border-radius: 20px;
+  margin-bottom: 0.8rem;
+}
+
+.nutrition-tag { background: #d4edda; color: #1a6b35; }
+.fitness-tag { background: #fff3e0; color: #b85c00; }
+.sleep-tag { background: #e8f4fd; color: #1565c0; }
+.mental-tag { background: #fce4ec; color: #880e4f; }
+
+.article-card h3 {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--heading);
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.article-card p {
+  font-size: 0.86rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+.article-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.article-link {
+  font-weight: 600;
+  color: var(--green);
+  text-decoration: none;
+}
+
+.article-link:hover { text-decoration: underline; }
