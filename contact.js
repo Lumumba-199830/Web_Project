@@ -58,3 +58,23 @@ function showError(errId, inputId) {
   document.getElementById(errId).style.display = 'block';
   document.getElementById(inputId).classList.add('input-error');
 }
+
+// Character counter for message field
+const messageField = document.getElementById('message');
+const counter = document.createElement('p');
+counter.style.cssText = 'font-size: 0.8rem; color: #7a8c81; text-align: right; margin-top: 0.3rem;';
+counter.textContent = '0 / 500 characters';
+messageField.parentNode.insertBefore(counter, messageField.nextSibling);
+
+messageField.addEventListener('input', function () {
+  const count = messageField.value.length;
+  counter.textContent = count + ' / 500 characters';
+  if (count >= 500) {
+    messageField.maxLength = 500;
+    counter.style.color = '#e53935';
+  } else if (count >= 20) {
+    counter.style.color = '#1a7a4a';
+  } else {
+    counter.style.color = '#7a8c81';
+  }
+});
