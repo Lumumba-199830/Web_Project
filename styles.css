@@ -464,3 +464,116 @@ input:focus, select:focus, textarea:focus {
 .stay-in-touch h2 { font-family: 'Fraunces', serif; font-size: clamp(1.6rem, 3vw, 2rem); font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
 .stay-in-touch p { color: rgba(255,255,255,0.7); }
 .touch-form-card { background: var(--white); border-radius: var(--radius); padding: 2rem; }
+
+/* WATER INTAKE PAGE */
+.water-hero {
+  position: relative;
+  background: url('images/drinking_water.jpg') center top / cover no-repeat;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+}
+
+.water-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.water-hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 4rem 0;
+}
+
+.water-hero-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.water-hero-title em { font-style: italic; color: #90caf9; }
+
+.water-hero-sub { font-size: 1rem; color: rgba(255,255,255,0.85); max-width: 480px; }
+
+.water-section { padding: 4rem 0; background: var(--bg); }
+
+.water-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+}
+
+.water-card h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--heading);
+  margin-bottom: 0.3rem;
+}
+
+.water-card p { font-size: 0.88rem; color: var(--muted); margin-bottom: 1.5rem; }
+
+.water-result {
+  margin-top: 2rem;
+  background: var(--green-light);
+  border: 1px solid var(--green);
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+}
+
+.water-result h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--heading);
+  margin-bottom: 1.5rem;
+}
+
+.water-result-numbers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 1.2rem;
+}
+
+.water-number {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.water-number span:first-child {
+  font-family: 'Fraunces', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--green);
+  line-height: 1;
+}
+
+.water-unit { font-size: 0.85rem; color: var(--muted); font-weight: 500; }
+
+.water-divider { font-size: 0.9rem; color: var(--muted); }
+
+.water-tip { font-size: 0.88rem; color: var(--body-text); margin: 0; }
+
+.water-tips-section { padding: 4rem 0 5rem; background: var(--white); }
+
+.water-tip-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--green);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  height: 100%;
+}
+
+.water-tip-card h4 { font-size: 0.95rem; font-weight: 700; color: var(--heading); margin-bottom: 0.4rem; }
+.water-tip-card p { font-size: 0.86rem; color: var(--muted); margin: 0; }
