@@ -638,3 +638,31 @@ input:focus, select:focus, textarea:focus {
 .bmi-info-card { background: var(--bg); border: 1px solid var(--border); border-left: 4px solid var(--green); border-radius: var(--radius); padding: 1.5rem; height: 100%; }
 .bmi-info-card h4 { font-size: 0.95rem; font-weight: 700; color: var(--heading); margin-bottom: 0.4rem; }
 .bmi-info-card p { font-size: 0.86rem; color: var(--muted); margin: 0; }
+
+/* CALORIE PAGE */
+.cal-section { padding: 4rem 0; background: var(--bg); }
+
+.cal-result {
+  margin-top: 2rem;
+  background: var(--green-light);
+  border: 1px solid var(--green);
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+}
+
+.cal-result h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 700; color: var(--heading); margin-bottom: 1.5rem; }
+
+.cal-result-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+
+.cal-result-item { background: var(--white); border-radius: var(--radius); padding: 1.2rem 0.8rem; display: flex; flex-direction: column; gap: 0.3rem; align-items: center; }
+.cal-result-item.lose { border-top: 3px solid #1565c0; }
+.cal-result-item.gain { border-top: 3px solid #1a7a4a; }
+
+.cal-result-num { font-family: 'Fraunces', serif; font-size: 1.3rem; font-weight: 700; color: var(--heading); }
+.cal-result-label { font-size: 0.78rem; color: var(--muted); font-weight: 500; text-align: center; }
+.cal-note { font-size: 0.82rem; color: var(--muted); margin: 0; font-style: italic; }
+
+.cal-info-item { background: var(--bg); border-radius: 8px; padding: 1rem 1.2rem; margin-bottom: 0.8rem; }
+.cal-info-item h4 { font-size: 0.9rem; font-weight: 700; color: var(--heading); margin-bottom: 0.3rem; }
+.cal-info-item p { font-size: 0.85rem; color: var(--muted); margin: 0; }
