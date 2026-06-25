@@ -40,3 +40,162 @@
       </div>
     </div>
   </nav>
+<!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="hero-eyebrow">Know your body</span>
+      <h1 class="page-hero-title">BMI <em>Calculator</em></h1>
+      <p class="page-hero-sub">Find out your Body Mass Index and understand what it means for your health in under a minute.</p>
+    </div>
+  </section>
+
+  <!-- BMI CALCULATOR -->
+  <section class="bmi-section">
+    <div class="container">
+      <div class="row g-5 justify-content-center">
+
+        <!-- FORM -->
+        <div class="col-lg-6">
+          <div class="bmi-card">
+            <h2>Enter your details</h2>
+            <p>Fill in your information below to calculate your BMI.</p>
+
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <label for="age">Age (years)</label>
+                <input type="number" id="age" placeholder="e.g. 25" min="1" max="120" />
+                <div class="error-msg" id="ageErr">Please enter your age.</div>
+              </div>
+              <div class="col-sm-6">
+                <label for="gender">Gender</label>
+                <select id="gender">
+                  <option value="">Select gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+                <div class="error-msg" id="genderErr">Please select your gender.</div>
+              </div>
+              <div class="col-sm-6">
+                <label for="height">Height (cm)</label>
+                <input type="number" id="height" placeholder="e.g. 170" min="1" />
+                <div class="error-msg" id="heightErr">Please enter your height.</div>
+              </div>
+              <div class="col-sm-6">
+                <label for="bmiWeight">Weight (kg)</label>
+                <input type="number" id="bmiWeight" placeholder="e.g. 70" min="1" />
+                <div class="error-msg" id="weightErr">Please enter your weight.</div>
+              </div>
+              <div class="col-12">
+                <button class="btn btn-primary-custom w-100" onclick="calculateBMI()">Calculate my BMI</button>
+              </div>
+            </div>
+
+            <!-- RESULT -->
+            <div id="bmiResult" class="bmi-result" style="display:none;">
+              <div class="bmi-score-box">
+                <span class="bmi-score-label">Your BMI</span>
+                <span class="bmi-score" id="bmiScore">0</span>
+                <span class="bmi-category" id="bmiCategory"></span>
+              </div>
+              <p id="bmiMessage" class="bmi-message"></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- BMI SCALE -->
+        <div class="col-lg-5">
+          <div class="bmi-scale-card">
+            <h3>BMI Scale</h3>
+            <p>Use this scale to understand your BMI result.</p>
+            <div class="bmi-scale-item underweight">
+              <span class="bmi-range">Below 18.5</span>
+              <span class="bmi-scale-label">Underweight</span>
+            </div>
+            <div class="bmi-scale-item normal">
+              <span class="bmi-range">18.5 — 24.9</span>
+              <span class="bmi-scale-label">Normal weight</span>
+            </div>
+            <div class="bmi-scale-item overweight">
+              <span class="bmi-range">25.0 — 29.9</span>
+              <span class="bmi-scale-label">Overweight</span>
+            </div>
+            <div class="bmi-scale-item obese">
+              <span class="bmi-range">30.0 and above</span>
+              <span class="bmi-scale-label">Obese</span>
+            </div>
+            <p class="bmi-note">Note: BMI is a general indicator and does not account for muscle mass, bone density, or age. Always consult a doctor for a full health assessment.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT IS BMI -->
+  <section class="bmi-info-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Learn more</span>
+        <h2>What is BMI?</h2>
+        <p>Body Mass Index is a simple measurement used to assess whether a person has a healthy body weight for their height.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="bmi-info-card">
+            <h4>How it is calculated</h4>
+            <p>BMI is calculated by dividing your weight in kilograms by the square of your height in metres. For example, 70kg ÷ (1.75 × 1.75) = 22.9.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="bmi-info-card">
+            <h4>Why it matters</h4>
+            <p>A healthy BMI reduces your risk of heart disease, type 2 diabetes, high blood pressure, and other weight-related health conditions.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="bmi-info-card">
+            <h4>Its limitations</h4>
+            <p>BMI does not measure body fat directly. Athletes may have a high BMI due to muscle mass. It is best used alongside other health checks.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="footer-brand">MyHealth<span>Check</span></div>
+          <p>Free health tools for everyone. Know your numbers, live better.</p>
+        </div>
+        <div class="col-md-4">
+          <h5>Tools</h5>
+          <ul>
+            <li><a href="BMI.html">BMI Calculator</a></li>
+            <li><a href="Calories_calc.html">Calorie Calculator</a></li>
+            <li><a href="Water_intake.html">Water Intake</a></li>
+            <li><a href="FAQ.html">Questions</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Pages</h5>
+          <ul>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Articles.html">Health Articles</a></li>
+            <li><a href="Health_tips.html">Health Tips</a></li>
+            <li><a href="Contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 MyHealthCheck. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="bmi.js"></script>
+</body>
+</html>
