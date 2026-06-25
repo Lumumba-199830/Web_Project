@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Health Articles | MyHealthCheck</title>
+  <title>Calorie Calculator | MyHealthCheck</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Fraunces:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
@@ -19,11 +19,11 @@
       </button>
       <div class="collapse navbar-collapse" id="navMenu">
         <ul class="navbar-nav ms-auto align-items-center">
-          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
           <li class="nav-divider"></li>
           <li class="nav-item"><a class="nav-link" href="BMI.html">BMI</a></li>
           <li class="nav-divider"></li>
-          <li class="nav-item"><a class="nav-link" href="Calories_calc.html">Calories</a></li>
+          <li class="nav-item"><a class="nav-link active" href="Calories_calc.html">Calories</a></li>
           <li class="nav-divider"></li>
           <li class="nav-item"><a class="nav-link" href="Water_intake.html">Water</a></li>
           <li class="nav-divider"></li>
@@ -33,10 +33,187 @@
           <li class="nav-divider"></li>
           <li class="nav-item"><a class="nav-link" href="About.html">About</a></li>
           <li class="nav-divider"></li>
-          <li class="nav-item"><a class="nav-link btn-contact" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link btn-contact" href="Contact.html">Contact</a></li>
           <li class="nav-divider"></li>
-          <li class="nav-item"><a class="nav-link btn-contact" href="Health_tips.html">Health Tips</a></li>
+          <li class="nav-item"><a class="nav-link" href="Health_tips.html">Health Tips</a></li>
         </ul>
       </div>
     </div>
   </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="hero-eyebrow">Fuel your body right</span>
+      <h1 class="page-hero-title">Calorie <em>Calculator</em></h1>
+      <p class="page-hero-sub">Find out exactly how many calories your body needs each day based on your age, weight, height, and activity level.</p>
+    </div>
+  </section>
+
+  <!-- CALCULATOR -->
+  <section class="cal-section">
+    <div class="container">
+      <div class="row g-5 justify-content-center">
+
+        <!-- FORM -->
+        <div class="col-lg-6">
+          <div class="bmi-card">
+            <h2>Enter your details</h2>
+            <p>We use the Mifflin-St Jeor formula — one of the most accurate methods for calculating daily calorie needs.</p>
+
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <label for="calAge">Age (years)</label>
+                <input type="number" id="calAge" placeholder="e.g. 25" min="1" max="120" />
+                <div class="error-msg" id="calAgeErr">Please enter your age.</div>
+              </div>
+              <div class="col-sm-6">
+                <label for="calGender">Gender</label>
+                <select id="calGender">
+                  <option value="">Select gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+                <div class="error-msg" id="calGenderErr">Please select your gender.</div>
+              </div>
+              <div class="col-sm-6">
+                <label for="calHeight">Height (cm)</label>
+                <input type="number" id="calHeight" placeholder="e.g. 170" min="1" />
+                <div class="error-msg" id="calHeightErr">Please enter your height.</div>
+              </div>
+              <div class="col-sm-6">
+                <label for="calWeight">Weight (kg)</label>
+                <input type="number" id="calWeight" placeholder="e.g. 70" min="1" />
+                <div class="error-msg" id="calWeightErr">Please enter your weight.</div>
+              </div>
+              <div class="col-12">
+                <label for="calActivity">Activity level</label>
+                <select id="calActivity">
+                  <option value="">Select activity level</option>
+                  <option value="1.2">Sedentary — little or no exercise</option>
+                  <option value="1.375">Lightly active — exercise 1 to 3 days a week</option>
+                  <option value="1.55">Moderately active — exercise 3 to 5 days a week</option>
+                  <option value="1.725">Very active — exercise 6 to 7 days a week</option>
+                  <option value="1.9">Extra active — very intense exercise daily</option>
+                </select>
+                <div class="error-msg" id="calActivityErr">Please select your activity level.</div>
+              </div>
+              <div class="col-12">
+                <button class="btn btn-primary-custom w-100" onclick="calculateCalories()">Calculate my calories</button>
+              </div>
+            </div>
+
+            <!-- RESULT -->
+            <div id="calResult" class="cal-result" style="display:none;">
+              <h3>Your daily calorie needs</h3>
+              <div class="cal-result-grid">
+                <div class="cal-result-item">
+                  <span class="cal-result-num" id="calMaintain">0</span>
+                  <span class="cal-result-label">To maintain weight</span>
+                </div>
+                <div class="cal-result-item lose">
+                  <span class="cal-result-num" id="calLose">0</span>
+                  <span class="cal-result-label">To lose weight</span>
+                </div>
+                <div class="cal-result-item gain">
+                  <span class="cal-result-num" id="calGain">0</span>
+                  <span class="cal-result-label">To gain weight</span>
+                </div>
+              </div>
+              <p class="cal-note">Values are in kcal per day. To lose weight, eat 500 kcal less than your maintenance. To gain weight, eat 500 kcal more.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- INFO CARD -->
+        <div class="col-lg-5">
+          <div class="bmi-scale-card">
+            <h3>What is a calorie?</h3>
+            <p>A calorie is a unit of energy. Your body uses calories to perform every function — from breathing to exercising.</p>
+            <div class="cal-info-item">
+              <h4>BMR</h4>
+              <p>Your Basal Metabolic Rate is the number of calories your body needs at complete rest just to keep you alive.</p>
+            </div>
+            <div class="cal-info-item">
+              <h4>TDEE</h4>
+              <p>Your Total Daily Energy Expenditure is your BMR multiplied by your activity level. This is how many calories you burn daily.</p>
+            </div>
+            <div class="cal-info-item">
+              <h4>Calorie deficit</h4>
+              <p>Eating fewer calories than you burn creates a deficit, which leads to weight loss over time when done consistently.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOD TIPS -->
+  <section class="bmi-info-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Eat well</span>
+        <h2>Making the most of your calories</h2>
+        <p>It is not just about how many calories you eat — it is about the quality of those calories too.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="bmi-info-card">
+            <h4>Choose whole foods</h4>
+            <p>Whole foods like vegetables, fruits, lean proteins, and whole grains keep you full longer and provide more nutrients per calorie.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="bmi-info-card">
+            <h4>Avoid empty calories</h4>
+            <p>Sugary drinks, sweets, and processed snacks are high in calories but low in nutrients. Limit these where possible.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="bmi-info-card">
+            <h4>Eat regularly</h4>
+            <p>Skipping meals can lead to overeating later in the day. Try to eat three balanced meals and healthy snacks if needed.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="footer-brand">MyHealth<span>Check</span></div>
+          <p>Free health tools for everyone. Know your numbers, live better.</p>
+        </div>
+        <div class="col-md-4">
+          <h5>Tools</h5>
+          <ul>
+            <li><a href="BMI.html">BMI Calculator</a></li>
+            <li><a href="Calories_calc.html">Calorie Calculator</a></li>
+            <li><a href="Water_intake.html">Water Intake</a></li>
+            <li><a href="FAQ.html">Questions</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Pages</h5>
+          <ul>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Articles.html">Health Articles</a></li>
+            <li><a href="Health_tips.html">Health Tips</a></li>
+            <li><a href="Contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 MyHealthCheck. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="calories.js"></script>
+</body>
+</html>
