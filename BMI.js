@@ -1,4 +1,4 @@
-// BMI Calculator - bmi.js
+// BMI Calculator - BMI.js
 
 function calculateBMI() {
   const age = document.getElementById('age').value;
@@ -11,64 +11,37 @@ function calculateBMI() {
   document.querySelectorAll('input, select').forEach(el => el.classList.remove('input-error'));
 
   let valid = true;
+  const fields = [
+    { val: age, err: 'ageErr', id: 'age', check: !age || age <= 0 },
+    { val: gender, err: 'genderErr', id: 'gender', check: !gender },
+    { val: height, err: 'heightErr', id: 'height', check: !height || height <= 0 },
+    { val: weight, err: 'weightErr', id: 'bmiWeight', check: !weight || weight <= 0 }
+  ];
 
-  if (!age || age <= 0) {
-    document.getElementById('ageErr').style.display = 'block';
-    document.getElementById('age').classList.add('input-error');
-    valid = false;
-  }
-
-  if (!gender) {
-    document.getElementById('genderErr').style.display = 'block';
-    document.getElementById('gender').classList.add('input-error');
-    valid = false;
-  }
-
-  if (!height || height <= 0) {
-    document.getElementById('heightErr').style.display = 'block';
-    document.getElementById('height').classList.add('input-error');
-    valid = false;
-  }
-
-  if (!weight || weight <= 0) {
-    document.getElementById('weightErr').style.display = 'block';
-    document.getElementById('bmiWeight').classList.add('input-error');
-    valid = false;
-  }
+  fields.forEach(f => {
+    if (f.check) {
+      document.getElementById(f.err).style.display = 'block';
+      document.getElementById(f.id).classList.add('input-error');
+      valid = false;
+    }
+  });
 
   if (!valid) return;
 
-  // BMI formula: weight (kg) / (height (m) * height (m))
-  const heightInMetres = height / 100;
-  const bmi = (weight / (heightInMetres * heightInMetres)).toFixed(1);
+  const bmi = (weight / Math.pow(height / 100, 2)).toFixed(1);
 
-  // Determine category and message
-  let category = '';
-  let message = '';
-  let colour = '';
+  const categories = [
+    { max: 18.5, label: 'Underweight', colour: '#1565c0', msg: 'Your BMI suggests you are underweight. Consider speaking to a doctor or nutritionist about a healthy plan to reach a normal weight.' },
+    { max: 25,   label: 'Normal weight', colour: '#1a7a4a', msg: 'Great news! Your BMI is within the healthy range. Keep up your healthy lifestyle with regular exercise and a balanced diet.' },
+    { max: 30,   label: 'Overweight', colour: '#b87800', msg: 'Your BMI suggests you are overweight. Small changes to your diet and activity level can make a big difference over time.' },
+    { max: Infinity, label: 'Obese', colour: '#c0392b', msg: 'Your BMI falls in the obese range. We recommend speaking to a healthcare professional for personalised advice and support.' }
+  ];
 
-  if (bmi < 18.5) {
-    category = 'Underweight';
-    message = 'Your BMI suggests you are underweight. Consider speaking to a doctor or nutritionist about a healthy plan to reach a normal weight.';
-    colour = '#1565c0';
-  } else if (bmi >= 18.5 && bmi <= 24.9) {
-    category = 'Normal weight';
-    message = 'Great news! Your BMI is within the healthy range. Keep up your healthy lifestyle with regular exercise and a balanced diet.';
-    colour = '#1a7a4a';
-  } else if (bmi >= 25 && bmi <= 29.9) {
-    category = 'Overweight';
-    message = 'Your BMI suggests you are overweight. Small changes to your diet and activity level can make a big difference over time.';
-    colour = '#b87800';
-  } else {
-    category = 'Obese';
-    message = 'Your BMI falls in the obese range. We recommend speaking to a healthcare professional for personalised advice and support.';
-    colour = '#c0392b';
-  }
+  const result = categories.find(c => bmi < c.max);
 
-  // Display result
   document.getElementById('bmiScore').textContent = bmi;
-  document.getElementById('bmiCategory').textContent = category;
-  document.getElementById('bmiCategory').style.color = colour;
-  document.getElementById('bmiMessage').textContent = message;
+  document.getElementById('bmiCategory').textContent = result.label;
+  document.getElementById('bmiCategory').style.color = result.colour;
+  document.getElementById('bmiMessage').textContent = result.msg;
   document.getElementById('bmiResult').style.display = 'block';
 }
